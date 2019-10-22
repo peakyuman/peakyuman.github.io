@@ -1,0 +1,27 @@
+Spring Boot常用注解:
+@SpingBootApplication:声明这是一个SpringBoot的应用，放在主类上面
+@ComponentScan:自动扫描和装配bean，一般用在主类上面
+@Configuration:初始化一些配置，需要在项目当中进行很多初始化的工作，比如数据库连接池等
+@EnableTransactionManagement：开启事务管理，然后访问数据库的Service方法上添加注解 @Transactional 便可
+@MapperScan(value="com.xxx.xxx"):自动扫描某个包下面的dao文件，这里使用的是mybatis操作数据库
+@EnableAutoConfiguration：自动初始化一些可能需要的配置和bean，一般放在主类上面
+@Repository：添加在dao层，用于标注数据访问组件
+
+@RestController:相当于@Controller+@ResponseBody
+@Controller:用于标注控制层组件
+@ResponseBody:表示返回的结果直接写入HTTP response body中
+@RequestMapping(""/xxx):请求地址映射
+@Autowired:自动注入bean
+@Bean：声明一个bean
+@Component:泛指组件，当这个组件不好归类的时候使用
+@ConfigurationProperties(prefix="xxx"):导入配置 文件当中的一些属性
+@Service：用于标注业务层的组件
+@RequestParam：用来处理Content-Type: 为 application/x-www-form-urlencoded编码的内容，提交方式GET、POST
+@PathVariable：处理REST ful风格的URI时候使用
+@RequestBody：该注解用来处理Content-Type: 为application/json, application/xml编码的内容
+@CookieValue:cookie里面包含的信息
+@RequestHeader:请求头里面的信息
+@PostMapping:专门处理为Post请求, @RequestMapping(value = "/xxx",method = RequestMethod.POST)简化版
+@GetMapping:专门处理为Get请求, @RequestMapping(value = "/xxx",method = RequestMethod.Get)简化版
+@EnableScheduling:代表会去扫描带有 @Scheduled(cron="0/10 * * * * ?")注解并执行,加在主类上面
+@Scheduled(cron="0/10 * * * * ?")：定时器，按照cron规则执行的定时方法，标注在方法之上。
